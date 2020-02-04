@@ -9,9 +9,6 @@ function App() {
   var [userList, setUsersList] = useState([1,2,3,4,5,6,7,8,9,10,11,12]);
   var [firstCallHasBeenMade, setFirstCallState] = useState(false);
 
-  var name = '';
-  const [testInput, setTest] = useState('');
-
   useEffect(() => {
     retrieveUsers();
   }, []);
@@ -36,7 +33,7 @@ function App() {
 
         </div>
         <div className="home-body">
-          <Menu></Menu>
+          <Menu userCreated={retrieveUsers}></Menu>
           {
             firstCallHasBeenMade ? 
             <ul className="display">

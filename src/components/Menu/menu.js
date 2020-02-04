@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './menu.css';
 import Api from '../../providers/api';
 
-function Menu() {
+function Menu({ userCreated }) {
   const [usernameInput, setUsername] = useState('');
   const [techsInput, setTechs] = useState('');
   const [latInput, setLat] = useState('');
@@ -34,10 +34,17 @@ function Menu() {
         lng: lngInput
       };
 
-      console.log(data);
-      const response = await Api.post('users/create', data);
-
-      console.log(response);
+      Api.post('users/create', data).then((res) => {
+        if (res) {
+          userCreated();
+        } else {
+          alert('Não foi possível cadastrar o usuário');
+        }
+      }).catch((err) => {
+        console.log('err', err);
+        alert('Não foi possível cadastrar o usuário');
+      });
+     
     } else {
       console.log('FAILED');
     }
