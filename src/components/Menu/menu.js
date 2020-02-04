@@ -51,7 +51,7 @@ function Menu() {
             <div className="input-block">
               <label htmlFor="username">Github Username</label>
               <input type="text" name="username" id="username" required value={usernameInput}
-                onChange={(text) => setUsername(text.value)}
+                onChange={(text) => setUsername(text.target.value)}
               ></input>
             </div>
 
@@ -59,7 +59,7 @@ function Menu() {
             <div className="input-block">
               <label htmlFor="techs">Tecnologias</label>
               <input type="text" name="techs" id="techs" required value={techsInput}
-                onChange={(text) => setTechs(text.value)}
+                onChange={(text) => setTechs(text.target.value)}
               ></input>
             </div>
 
@@ -68,7 +68,7 @@ function Menu() {
               <div className="input-block">
                 <label htmlFor="lat">Lat</label>
                 <input type="number" name="lat" id="lat" value={latInput} required
-                  onChange={(text) => { setLat(text.value) }}
+                  onChange={(text) => { setLat(text.target.value) }}
                 ></input>
               </div>
 
@@ -76,7 +76,7 @@ function Menu() {
               <div className="input-block">
                 <label  htmlFor="lng">Lng</label>
                 <input type="number" name="lng" id="lng" value={lngInput} required
-                 onChange={(text) => { setLng(text.value) }}
+                 onChange={(text) => { setLng(text.target.value) }}
                 ></input>
               </div>
             </div>

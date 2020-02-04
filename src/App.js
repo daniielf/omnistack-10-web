@@ -8,18 +8,19 @@ import Api from './providers/api.js';
 function App() {
   var [userList, setUsersList] = useState([1,2,3,4,5,6,7,8,9,10,11,12]);
   var [firstCallHasBeenMade, setFirstCallState] = useState(false);
+
+  var name = '';
+  const [testInput, setTest] = useState('');
+
   useEffect(() => {
     retrieveUsers();
   }, []);
 
   function retrieveUsers() {
-    // let api = new Api();
     Api.get('users').then((res) => {
       console.log(res);
       if (res && res.data.length > 0) {
         setUsersList(res.data);
-      } else {
-        setUsersList([1,2,3,4,5,6,7,8,9,10,11,12]);
       }
     }).catch((err) => {
       console.log(err);
