@@ -1,19 +1,23 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './card.css';
 // import a from '../../assets/florence-placeholder.jpg'
 
-function Card() {
+function Card(props) {
+  var [profile, setProfile] = useState(props.profile);
+  useEffect((elem) => {
+    // console.log('Props', props);
+  }, [])
   return (
     <div className="card-content">
       <div className="photo-content">
         <div className="photo-circle">
-          <img className="photo" alt="placeholder" src="https://terroirauburn.com.au/wp-content/uploads/2018/04/blank-profile-picture-973460_960_720.png" />
+          <img className="photo" alt="placeholder" src={profile.avatar_url} />
         </div>
       </div>
       <div className="info-content">
-        <h2>Nome</h2>
-        <p>Bio</p>
-        <p>Techs</p>
+        <h2>{ profile.name }</h2>
+        <p>{ profile.bio }</p>
+        <p>{ profile.techs }</p>
       </div>
     </div>
   );
